@@ -67,7 +67,7 @@ MESSAGE=Hello from Im from ENV!
 PORT=3000
 ```
 
-With this setup, the `MESSAGE` environment variable will be set to "Hello from .env!", which will be the response to requests to the root URL. The `PORT` environment variable will also be set to 3000, which will be the port that the server listens on (unless the `PORT` environment variable is already set to a different value).
+With this setup, the `MESSAGE` environment variable will be set to "Hello from Im from ENV!", which will be the response to requests to the root URL. The `PORT` environment variable will also be set to 3000, which will be the port that the server listens on (unless the `PORT` environment variable is already set to a different value).
 
 
 ## Connect your database
