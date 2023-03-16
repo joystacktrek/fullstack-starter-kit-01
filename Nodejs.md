@@ -1,7 +1,7 @@
 # Node JS
 ```javascript
 
-``// index.js
+// index.js
 
 // Require dependencies
 const express = require('express');
