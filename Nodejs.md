@@ -139,13 +139,16 @@ console.log(`Server listening on port ${PORT}`);
 
 make sure to use `async` and `await`. in every query we perform
 
-Server folder Structure
->Server folder|
->>Index.js
->>database.js
->>.env
->>package.json
->>README. md
+### Server folder Structure
+```lua
+Server/ 
+	|-- index.js
+	|-- database.js
+	|-- .env
+	|-- package.json
+	|-- readme.md
+
+```
 
 ## `async` and `await`
 
