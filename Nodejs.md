@@ -140,7 +140,7 @@ console.log(`Server listening on port ${PORT}`);
 make sure to use `async` and `await`. in every query we perform
 
 Server folder Structure
->Server folder
+>Server folder|
 >>Index.js
 >>database.js
 >>.env
