@@ -137,16 +137,16 @@ console.log(`Server listening on port ${PORT}`);
 
 ```
 
-make sure to use `async` and `await`. in every query we perform
+make sure to use `async` and `await`. in every query/request we perform
 
 ### Server folder Structure
 ```lua
 Server/ 
-	|-- index.js
-	|-- database.js
-	|-- .env
-	|-- package.json
-	|-- readme.md
+|-- index.js
+|-- database.js
+|-- .env
+|-- package.json
+|-- readme.md
 
 ```
 
