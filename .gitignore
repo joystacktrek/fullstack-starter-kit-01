@@ -1,2 +1,2 @@
-*node_modules/*
+*Server/node_modules*
 /What_is_NodeJS.md
