@@ -5,7 +5,7 @@ function Fetch_data() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/users')
+    axios.get('http://localhost:4000/user')
       .then(response => {
         setData(response.data);
       })
@@ -20,7 +20,7 @@ function Fetch_data() {
       {data ? (
         <ul>
           {data.map(item => (
-            <li key={item.id}>{item.title}</li>
+            <li key={item.ID}>{item.First_name} {item.Last_name}</li>
           ))}
         </ul>
       ) : (
