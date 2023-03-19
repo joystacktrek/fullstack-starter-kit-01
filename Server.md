@@ -258,8 +258,8 @@ In the example above, the `await` keyword is used twice to wait for the fetch re
 
 ---
 
-## Now Lets run our backend
-
+## Lets now run our backend
+To run our `index.js` Type in this command to your terminal:
 ```bash
 node index.js
 ```
