@@ -55,7 +55,7 @@ module.exports  =  {
 	],
 	theme:  { extend:  {}, },
 	plugins:  [], 
-	}
+}
 ```
 
 6.  Add the Tailwind directives to your CSS
@@ -171,6 +171,6 @@ export default App;
 ---
 Links:
 
--  [React Documentations](https://react.dev/learn)
+-  [Create-React-App Documentations](https://create-react-app.dev/)
 -  [Axios](https://www.npmjs.com/package/axios)
 -  [Tailwind Documentation](https://tailwindcss.com/docs/installation)
