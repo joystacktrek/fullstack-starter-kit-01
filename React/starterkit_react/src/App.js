@@ -9,6 +9,7 @@ function App() {
       Hello world!
     </h1>
 
+    {/* //this is the component that fetches data from the database */}
     <Fetch_data/>
     </div>
   );
