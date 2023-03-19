@@ -258,6 +258,25 @@ In the example above, the `await` keyword is used twice to wait for the fetch re
 
 ---
 
+## Now Lets run our backend
+
+```bash
+node index.js
+```
+Outpush should be:
+```bash
+Server listening on port 4000
+```
+or 
+
+```bash
+Server listening on port 4001
+```
+
+
+---
+
+
 Links:
 
 -  [Node Js Documentation](https://nodejs.org/en/docs)
