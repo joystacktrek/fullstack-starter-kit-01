@@ -15,3 +15,31 @@ This repository contains Boiler plate for Node js (server) along with React.js w
 	- Front end
 - `Node.js`
 	- Back End
+
+---
+
+### starter-kit folder structure
+```lua
+starter-kit/
+|-- assets/
+|-- client/
+|   |-- node_modules/ 
+|   |-- public/
+|   |   |-- index.html 
+|   |   |-- manifest.JSON
+|   |   |-- src/ 
+|   |   |   |-- App.js 
+|   |   |   |-- App.css
+|   |   |   |-- index.js 
+|   |   |   |-- index.css 
+|   |-- package.json 
+|   |-- README.md 
+|   |-- tailwind.config.js
+|--server
+|  |-- index.js
+|  |-- database.js
+|  |-- .env
+|  |-- package.json
+|  |-- readme.md
+|
+
