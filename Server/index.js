@@ -35,6 +35,16 @@ app.get('/user', async (req, res) => {
    } 
 });
 
+app.get('/users', async (req, res) => { 
+  try { 
+  const result = await pool.query(`SELECT * from "users";`);
+  res.send(result.rows); 
+  } 
+  catch (error) {
+   console.error(error); res.sendStatus(500); 
+   } 
+});
+
 // Start the server
 const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => {
