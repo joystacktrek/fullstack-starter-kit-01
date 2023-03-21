@@ -30,6 +30,7 @@ starter-kit/
 |   |   |-- src/ 
 |   |   |   |-- App.js 
 |   |   |   |-- App.css
+|   |   |   |-- fetch_data.js
 |   |   |   |-- index.js 
 |   |   |   |-- index.css 
 |   |-- package.json 
@@ -42,4 +43,14 @@ starter-kit/
 |  |-- package.json
 |  |-- readme.md
 |
+```
+
+`assets`
+- this is where we keep our files like (.jpg, .png ... etc)
+
+`client`
+- this is the front end side of the app
+
+`server`
+- this is for the backend side of the app
 
