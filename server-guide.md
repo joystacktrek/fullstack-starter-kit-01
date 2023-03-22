@@ -4,15 +4,23 @@
 
 
 ```lua
-Server/ 
-	|-- index.js
-	|-- database.js
-	|-- .env
-	|-- package.json
-	|-- readme.md
+
+server/
+|-- node_modules/
+|-- index.js
+|-- database.js
+|-- .env
+|-- package.json
+
 
 ```
-
+Explanation of the file structure:
+- `node_modules/` : Contains all the downloaded packages from npm in your machine.
+-   `server/`: Contains the source code for the backend.
+    -   `index.js`: The main entry point for the backend.
+    -   `database.js`: Database configurations.
+    -   `.env`: Text configuration file for controlling your Applications environment constants.
+	-   `package.json`: The file that describes the app and its dependencies.
 
 ```javascript
 
