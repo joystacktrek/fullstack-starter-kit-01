@@ -1,16 +1,17 @@
 # React Js with Tailwind CSS
 
 ```lua
-starterkit_react/ 
+client/ 
 |-- node_modules/ 
 |-- public/
-| |-- index.html 
-| |-- manifest.JSON
+|   |-- index.html 
+|   |-- manifest.JSON
 |-- src/ 
-| |-- App.js 
-| |-- App.css
-| |-- index.js 
-| |-- index.css 
+|   |-- App.js 
+|   |--fetch_data.js
+|   |-- App.css
+|   |-- index.js 
+|   |-- index.css 
 |-- package.json 
 |-- README.md 
 |-- tailwind.config.js
@@ -22,6 +23,7 @@ Explanation of the file structure:
     -   `index.js`: The main entry point for the app.
     -   `index.css`: Global CSS styles for the app.
     -   `App.js`: The main React component for the app.
+	- 	`fetch_data.js`: The one we created to fetch data to our backend
 -   `public/`: Contains public files for the app, such as the `index.html` file and any additional CSS files.
 -   `package.json`: The file that describes the app and its dependencies.
 -   `README.md`: A file that explains how to use the app.
