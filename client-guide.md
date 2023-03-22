@@ -166,7 +166,8 @@ function  Fetch_data() {
 export  default  Fetch_data;
 ```
 
-Now we can view call the `Fetch_data` to our `App.js`
+Now we call the `Fetch_data` componenet to our `App.js`
+
 
 ```javascript
 //src/app.js
