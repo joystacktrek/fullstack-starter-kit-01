@@ -1,4 +1,19 @@
 # Node JS
+
+### Server folder Structure
+
+
+```lua
+Server/ 
+	|-- index.js
+	|-- database.js
+	|-- .env
+	|-- package.json
+	|-- readme.md
+
+```
+
+
 ```javascript
 
 ``// index.js
@@ -222,18 +237,7 @@ console.log(`Server listening on port ${PORT}`);
 
 make sure to use `async` and `await`. in every query we perform
 
-### Server folder Structure
 
-
-```lua
-Server/ 
-	|-- index.js
-	|-- database.js
-	|-- .env
-	|-- package.json
-	|-- readme.md
-
-```
 ## `async` and `await`
 
 `async` and `await` are features in JavaScript that help simplify asynchronous code. Asynchronous code allows JavaScript to execute multiple tasks simultaneously, without blocking the main thread. However, working with asynchronous code can be complex and difficult to manage. That's where `async` and `await` come in.
