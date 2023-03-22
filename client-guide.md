@@ -1,5 +1,7 @@
 # React Js with Tailwind CSS
+```bash
 
+```
 ```lua
 client/ 
 |-- node_modules/ 
@@ -29,14 +31,39 @@ Explanation of the file structure:
 -   `README.md`: A file that explains how to use the app.
 -   `tailwind.config.js`: The configuration file for Tailwind CSS.
 
+
+> If you want want **clone** this repository 
+> 1. In your terminal, type in `git clone <repository link>`
+> 2. Navigate to cloned repository folder. `cd starter-kit` `cd client`
+> 3. Install dependencies to `client` folder by typing `npm install` in your terminal
+	> **`npm i axios` if axios doesn't install automatically in `npm install`
+	
+> *Note: Please make sure that you are in the correct directories to avoid any errors. *
+
+
+### If you want to create from scratch:
+
+Before we begin make sure that you already installed [Node Js](https://nodejs.org/en)
+- The installer contains the NPM package. 
+
+#### To check if you have node in your machine
+In your terminal:
+```bash
+npm -v 
+```
+it should have something like this:
+```bash
+8.19.2
+```
+
 Here's how to set up the project:
 ### Create a React App
 1.  Open your terminal and navigate to the directory where you want to create your new React.js project.
 2.  Run the following command to create a new React.js project using `create-react-app`:
 ```bash
-npx create-react-app starterkit_react
+npx create-react-app client
 ```
-(Replace "starterkit_react" with the name of your project.)
+(Replace "client" with the name of your project.)
 
 3. Navigate to the project directory using `cd starterkit_react`.
 
