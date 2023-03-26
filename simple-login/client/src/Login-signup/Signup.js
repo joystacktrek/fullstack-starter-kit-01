@@ -8,6 +8,9 @@ import {Link, useNavigate} from 'react-router-dom'
 import SignupHandler from './handlers/Signup-handler';
 const Signup = () => {
 
+  //useNavigate to navigate to different pages
+  const navigate = useNavigate();
+
   //usestates to handle the form data
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -16,7 +19,6 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   //fields validation
-  
   const [passwordMatch, setPasswordMatch] = useState(true);
   
  
@@ -32,7 +34,19 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    SignupHandler(firstName, lastName, email, password)
+    SignupHandler(firstName, lastName, email, password).then((res) => {
+      console.log(res);
+     if(res === "Email already exist") {
+       alert("Email already exists.")
+     }
+     else{
+      alert("Account created successfully");
+      navigate('/login');
+     }
+    }
+    );
+   
+ 
   };
 
   return (

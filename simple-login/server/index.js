@@ -41,7 +41,7 @@ app.get('/user', async (req, res) => {
    } 
 });
 
-
+//authentication middleware
 const AuthenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization']
    const token = authHeader && authHeader.split(' ')[1]

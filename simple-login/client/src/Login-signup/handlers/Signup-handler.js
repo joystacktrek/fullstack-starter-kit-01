@@ -1,21 +1,17 @@
 import axios from "axios";
 
-const SignupHandler = (f_name, l_name, email, password) => {
-   
-
-    const registration = async () => {
-       await axios.post('http://localhost:4000/api/user-signup',
+const SignupHandler = async(f_name, l_name, email, password) => {
+        return await axios.post('http://localhost:4000/api/user-signup',
             {headers: { 'Content-Type': 'application/json'},
              f_name, l_name, email, password})
             .then(res => {
                 console.log(res)
-                return res.status
+                return res.data
             }
         )
-    }
+    
 
-    registration()
-
+  
   
 }
 export default SignupHandler;
