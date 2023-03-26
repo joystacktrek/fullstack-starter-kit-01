@@ -13,6 +13,7 @@ const pool = require('./database')
 // Create an instance of the express application
 const app = express();
 
+//encypt password using bcryptjs
 const encrypt = require('bcryptjs');
 //json webtoken
 const jwt = require('jsonwebtoken');
@@ -46,7 +47,6 @@ const AuthenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization']
    const token = authHeader && authHeader.split(' ')[1]
    if (token == null) return res.sendStatus(401)
-
    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
      console.log(err)
      if (err) return res.sendStatus(403)
@@ -60,24 +60,21 @@ app.get('/api/user-login', async (req, res) => {
   try {
     const login_data = req.query;
     const credentials = {email: login_data.Email, password: login_data.Password}
-    console.log(req.query)
-    console.log(credentials)
     //check email if already exist
     const check_email = await pool.query(`SELECT * FROM credentials WHERE "email" = '${credentials.email}';`);
+
     if (check_email.rows.length > 0) {
       const user = check_email.rows[0];
       //will compare the password from the database with the password from the request body
       const validPassword = await encrypt.compare(credentials.password, user.password);
       if (!validPassword) return res.send('Invalid email or password.').status(401);
 
-      
+      //create a token
       const token = jwt.sign(credentials.email, process.env.ACCESS_TOKEN_SECRET);
       console.log(token)
       
       //send user id and token to the client
       res.setHeader('auth-token', token).send({id: user.id, token: 'Bearer '+token}).status(200);
-     
-     
     }
 
     //if email does not exist in database return error
@@ -85,26 +82,13 @@ app.get('/api/user-login', async (req, res) => {
       res.sendStatus(401);
     }
   } 
-
   catch (error) {
     console.error(error); res.sendStatus(500);
   }
   });
         
-
-    //get user data 
-    app.get('/api/user-data', AuthenticateToken, async (req, res) => {
-      try {
-        const user = await pool.query(`SELECT * FROM "credentials" WHERE "id" = '${req.user._id}';`);
-        res.send(user.rows[0]);
-      } catch (error) {
-        console.error(error); res.sendStatus(500);
-      }
-    });
     
-  
-  
-
+//Signup route
 app.post('/api/user-signup', async (req, res) => {
   try {
     //get data from request body
