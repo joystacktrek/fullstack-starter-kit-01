@@ -446,7 +446,7 @@ We use `AuthenticateToken()` as middleware to protect this route from unauthoriz
 If the token is valid the user will be able to access the route however, if the token is invalid the user will not be able to access the route
 
 ---
-# The final resut 
+# The final result 
 ` index.js` should look like this:
 ```js
 // index.js
