@@ -1,7 +1,9 @@
 // index.js
 
-// Require dependencies
+//dotenv to use environment variables
 require('dotenv').config();
+
+//use express to create a server
 const express = require('express');
 
 //use cors to allow cross origin resource sharing
@@ -10,31 +12,43 @@ const cors = require("cors")
 //Connect to the database configured in database.js
 const pool = require('./database') 
 
-// Create an instance of the express application
-const app = express();
+
 
 //encypt password using bcryptjs
 const encrypt = require('bcryptjs');
 //json webtoken
 const jwt = require('jsonwebtoken');
 
+// Create an instance of the express application
+const app = express();
+
+//it will use the port number from the environment variable or 4001 if there is no environment variable
+const PORT = process.env.PORT || 4001;
+
 // to allow cross origin resource sharing
 app.use(cors())
 // Use express.json() to parse JSON bodies into JS objects
-
 app.use(express.json())
+
+// listen method binds and listens the connections on the specified host and port
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
+
 // Define routes
 app.get('/', (req, res) => {
-  const message = process.env.MESSAGE || 'Hello, world!';
+  const message ='Hello, world!';
   res.send(message);
 });
 
 
 
+
+
 // Define a route that queries the database to select all the values in our `user` table 
-app.get('/user', async (req, res) => { 
+app.get('/users', async (req, res) => { 
   try { 
-  const result = await pool.query(`SELECT * from "users";`);
+  const result = await pool.query(`SELECT * from "credentials";`);
   res.send(result.rows); 
   } 
   catch (error) {
@@ -42,52 +56,7 @@ app.get('/user', async (req, res) => {
    } 
 });
 
-//authentication middleware
-const AuthenticateToken = (req, res, next) => {
-  const authHeader = req.headers['authorization']
-   const token = authHeader && authHeader.split(' ')[1]
-   if (token == null) return res.sendStatus(401)
-   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-     console.log(err)
-     if (err) return res.sendStatus(403)
-     req.user = user
-     next()
-   })
- }
 
-
-app.get('/api/user-login', async (req, res) => {
-  try {
-    const login_data = req.query;
-    const credentials = {email: login_data.Email, password: login_data.Password}
-    //check email if already exist
-    const check_email = await pool.query(`SELECT * FROM credentials WHERE "email" = '${credentials.email}';`);
-
-    if (check_email.rows.length > 0) {
-      const user = check_email.rows[0];
-      //will compare the password from the database with the password from the request body
-      const validPassword = await encrypt.compare(credentials.password, user.password);
-      if (!validPassword) return res.send('Invalid email or password.').status(401);
-
-      //create a token
-      const token = jwt.sign(credentials.email, process.env.ACCESS_TOKEN_SECRET);
-      console.log(token)
-      
-      //send user id and token to the client
-      res.setHeader('auth-token', token).send({id: user.id, token: 'Bearer '+token}).status(200);
-    }
-
-    //if email does not exist in database return error
-    else {
-      res.sendStatus(401);
-    }
-  } 
-  catch (error) {
-    console.error(error); res.sendStatus(500);
-  }
-  });
-        
-    
 //Signup route
 app.post('/api/user-signup', async (req, res) => {
   try {
@@ -108,15 +77,71 @@ app.post('/api/user-signup', async (req, res) => {
     user.password = await encrypt.hash(user.password, salt);
     //insert data to database
     const result = await pool.query(`INSERT INTO "credentials" ("first_name", "last_name", "email", "password") VALUES ('${user.f_name}', '${user.l_name}', '${user.email}', '${user.password}');`);
-    console.log(req.body)
-    res.send(result.rows);
+    res.send("Account created successfully").status(201);
     }
   }
     catch (error) {
       console.error(error); res.sendStatus(500);
       }
-  });
+});
 
+
+//login route
+app.get('/api/user-login', async (req, res) => {
+  try {
+    const login_data = req.query;
+    const credentials = {email: login_data.Email, password: login_data.Password}
+    //check email if already exist
+    const check_email = await pool.query(`SELECT * FROM credentials WHERE "email" = '${credentials.email}';`);
+
+    if (check_email.rows.length > 0) {
+      const user = check_email.rows[0];
+      //will compare the password from the database with the password from the request body
+      const validPassword =  encrypt.compare(credentials.password, user.password);
+      if (!validPassword) return res.send('Invalid email or password.').status(401);
+
+      //create a token
+      const token = jwt.sign(credentials.email, process.env.ACCESS_TOKEN_SECRET);
+  
+      
+      //send user id and token to the client
+      res.setHeader('auth-token', token).send({id: user.id, token: 'Bearer '+token}).status(200);
+    }
+
+    //if email does not exist in database return error
+    else {
+      res.sendStatus(401);
+    }
+  } 
+  catch (error) {
+    console.error(error); res.sendStatus(500);
+  }
+});
+
+
+    
+
+    //authentication middleware
+const AuthenticateToken = (req, res, next) => {
+  //get token from header
+  const authHeader = req.headers['authorization']
+  //split the token from the bearer
+   const token = authHeader && authHeader.split(' ')[1]
+   //if there is no token return 401
+   if (token == null) return res.sendStatus(401)
+   //verify the token using the secret key in the .env file
+   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err) => {
+    //if there is an error return 403
+     if (err) return res.sendStatus(403)
+     //next() is used to move to the next middleware
+     next()
+   })
+ }
+
+
+ //we use AuthenticateToken as a middleware to protect the route from unauthorized access
+ //if the token is valid the user will be able to access the route
+ //if the token is invalid the user will not be able to access the route
   app.get('/api/credentials',AuthenticateToken, async (req, res) => {
     try {
       const id = req.query.id;
@@ -126,13 +151,10 @@ app.post('/api/user-signup', async (req, res) => {
     } catch (error) {
       console.error(error); res.sendStatus(500);
     }
-  });
+});
+
+  
 
  
 
-// Start the server
-const PORT = process.env.PORT || 4001;
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
 

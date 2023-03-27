@@ -13,7 +13,7 @@ import Signup from './Login-signup/Signup';
 
 
 
-//we create a function that will load other components
+//we create a function that will load other components based on the path
 const Routing = () => {
   const routes = useRoutes([
     {path: '/login', element: <Login/>},
@@ -26,12 +26,8 @@ const Routing = () => {
 function App() {
   return (
     <div className="text-center flex justify-center items-center h-screen">
-     
     {/* we call the `Routing` function to load other components here */}
     <Routing/> 
-
-
-
     </div>
   );
 }

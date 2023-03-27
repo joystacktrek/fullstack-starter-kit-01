@@ -3,10 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import loginHandler from './handlers/Login-handler';
 
 const Login = () => {
+  //useNavigate to navigate to different pages
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  //fields validation
   const handleSubmit = (event) => {
     event.preventDefault();
     loginHandler(email, password).then((res) => {
@@ -57,6 +59,7 @@ const Login = () => {
          <div className="inline-flex items-center justify-center w-full mb-5">
             <span className="absolute px-3 font-light -translate-x-1/2 bg-blue-300 left-1/2">Don't you have an account? </span>
         </div>
+
         <Link to="/signup">
            <button className= "bg-transparent hover:bg-blue-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
              Sign Up
