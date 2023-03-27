@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie';
-function Fetch_data() {
+function FetchData() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -58,4 +58,4 @@ function Fetch_data() {
   );
 }
 
-export default Fetch_data;
+export default FetchData;

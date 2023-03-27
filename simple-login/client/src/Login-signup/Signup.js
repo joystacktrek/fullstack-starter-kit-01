@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 
 // Link: is used to navigate to different pages via the link
+
 // useNavigate: is used to navigate to different pages via the function
 import {Link, useNavigate} from 'react-router-dom'
 
@@ -125,7 +126,7 @@ const Signup = () => {
 
        
         {/* conditionally render and disable the button based on the password match */}
-        <button type="submit" disabled={!passwordMatch} className={!passwordMatch ? " bg-red-500 text-white font-bold py-2 px-4 rounded block uppercase   font-bold mb-10" : " bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block uppercase   font-bold mb-10"}>Sign Up</button>
+        <button type="submit" disabled={!passwordMatch} className={!passwordMatch ? " bg-red-500 text-white py-2 px-4 rounded block uppercase font-bold mb-10" : " bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block uppercase   font-bold mb-10"}>Sign Up</button>
 
          {/* do you have an account */}
          <div className="inline-flex items-center justify-center w-full mb-5">

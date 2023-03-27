@@ -9,9 +9,7 @@ const SignupHandler = async(f_name, l_name, email, password) => {
                 return res.data
             }
         )
-    
+    //we send the data to the server and get the response and return it to the component
 
-  
-  
 }
 export default SignupHandler;
