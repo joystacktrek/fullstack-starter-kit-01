@@ -1,20 +1,4 @@
-# Simple Login and Sign up - Guide
-This time we will create a simple login and sign up
-
-This exercise will tackle the following:
-- Backend(server)
-	- JWT Token
-		- Authentications 
-	- Password Hashing
-- Frontend(client)
-	- HTTP Request (Axios)
-	- Routings
-	- Hooks
-	- Links and useNavigation
----
-
-
-### `server` folder structure 📁
+# `server` folder structure 📁
 
 ```lua
 server/
@@ -452,6 +436,7 @@ We use `AuthenticateToken()` as middleware to protect this route from unauthoriz
 If the token is valid the user will be able to access the route however, if the token is invalid the user will not be able to access the route
 
 ---
+
 # 👉Next [Front end (client-guide) ]()
 
 ## Links
