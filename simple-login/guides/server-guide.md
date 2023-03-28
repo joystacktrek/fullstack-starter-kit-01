@@ -1,5 +1,4 @@
-
-#`server` folder structure 📁
+## `server` folder structure 📁
 
 ```lua
 server/
@@ -446,7 +445,7 @@ We use `AuthenticateToken()` as middleware to protect this route from unauthoriz
 If the token is valid the user will be able to access the route however, if the token is invalid the user will not be able to access the route
 
 ---
-# The final result 
+## The final resut 
 ` index.js` should look like this:
 ```js
 // index.js
@@ -607,9 +606,13 @@ const AuthenticateToken = (req, res, next) => {
 ```
 
 ---
-# 👉Next [Front end (client-guide) ]()
+## 👉Next [Front end (client-guide) ](https://github.com/joystacktrek/fullstack-starter-kit-01/blob/main/simple-login/guides/client-guide.md)
+### [server-guide](https://github.com/joystacktrek/fullstack-starter-kit-01/blob/main/simple-login/guides/server-guide.md) 👩‍🏫
+### [client](https://github.com/joystacktrek/fullstack-starter-kit-01/tree/main/simple-login/client)
+### [server](https://github.com/joystacktrek/fullstack-starter-kit-01/tree/main/simple-login/server)
+### [simple-login](https://github.com/joystacktrek/fullstack-starter-kit-01/tree/main/simple-login) :this contains all the project files.
 
-## Links
+## Links 🌐
 
 👉[HTTP Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
@@ -620,4 +623,3 @@ const AuthenticateToken = (req, res, next) => {
 👉[JWT](https://www.npmjs.com/package/jsonwebtoken)
 
 👉[bcryptjs](https://www.npmjs.com/package/bcryptjs)
-
