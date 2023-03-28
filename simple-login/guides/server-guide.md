@@ -606,11 +606,11 @@ const AuthenticateToken = (req, res, next) => {
 ```
 
 ---
-## 👉Next [Front end (client-guide) ](https://github.com/joystacktrek/fullstack-starter-kit-01/blob/main/simple-login/guides/client-guide.md)
-### [server-guide](https://github.com/joystacktrek/fullstack-starter-kit-01/blob/main/simple-login/guides/server-guide.md) 👩‍🏫
+## 👉Up Next! [Front end (client-guide) ](https://github.com/joystacktrek/fullstack-starter-kit-01/blob/main/simple-login/guides/client-guide.md)
+
 ### [client](https://github.com/joystacktrek/fullstack-starter-kit-01/tree/main/simple-login/client)
 ### [server](https://github.com/joystacktrek/fullstack-starter-kit-01/tree/main/simple-login/server)
-### [simple-login](https://github.com/joystacktrek/fullstack-starter-kit-01/tree/main/simple-login) :this contains all the project files.
+### [Project folder](https://github.com/joystacktrek/fullstack-starter-kit-01/tree/main/simple-login) 
 
 ## Links 🌐
 
