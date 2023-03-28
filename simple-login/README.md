@@ -1,4 +1,4 @@
-# Simple Login and Sign up 
+# Simple Login and Sign up 🔐
 This time we will create a simple login and sign up
 
 This exercise will tackle the following:
