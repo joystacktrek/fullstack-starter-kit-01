@@ -18,7 +18,7 @@ This exercise will tackle the following:
 > *read  the `server-guide` first before proceeding to `client-guide`*
 ---
 
-## `simple-login` folder structure
+## `simple-login` folder structure📂
 ```lua
 simple-login/
 |--client/ 
