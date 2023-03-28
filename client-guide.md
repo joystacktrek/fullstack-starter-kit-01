@@ -1,7 +1,5 @@
 # React Js with Tailwind CSS
-```bash
 
-```
 ```lua
 client/ 
 |-- node_modules/ 
@@ -58,17 +56,17 @@ it should have something like this:
 
 Here's how to set up the project:
 ### Create a React App
-1.  Open your terminal and navigate to the directory where you want to create your new React.js project.
-2.  Run the following command to create a new React.js project using `create-react-app`:
+1.  create a folder named as `starter-kit`
+2. open your terminal and navigate to the directory where you want to create your new React.js project.
+3.  Run the following command to create a new React.js project using `create-react-app`:
 ```bash
 npx create-react-app client
 ```
-(Replace "client" with the name of your project.)
 
-3. Navigate to the project directory using `cd starterkit_react`.
+4. Navigate to the project directory using `cd client`.
 
 ### Install Tailwind CSS
-4.  Install the necessary dependencies:
+5.  Install the necessary dependencies:
 ```bash
 npm install -D tailwindcss
 ```

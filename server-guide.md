@@ -197,7 +197,7 @@ module.exports = pool
 ```
 
 
-Now lets connect our `database.js` to our `index.js` and lets try to perform a simple query
+Now let's connect our `database.js` to our `index.js` and lets try to perform a simple query
 ```javascript
 // index.js
 
